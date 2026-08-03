@@ -1,0 +1,68 @@
+{% extends "budgets/base.html" %}
+{% block title %}Panel{% endblock %}
+{% block content %}
+<h2 class="mb-4">Genel Bakış</h2>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card p-3 text-center">
+            <h6>Toplam Bütçe</h6>
+            <h2>{{ total_budgets }}</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card p-3 text-center">
+            <h6>Departman Sayısı</h6>
+            <h2>{{ departments }}</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card p-3 text-center">
+            <h6>Onay Bekleyen</h6>
+            <h2>{{ pending_approval }}</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card p-3 text-center">
+            <h6>Onaylanan</h6>
+            <h2>{{ approved }}</h2>
+        </div>
+    </div>
+</div>
+<div class="card p-4 mt-4">
+    <h5 class="mb-3">Departman Bazlı Bütçe Dağılımı</h5>
+    <canvas id="deptChart" height="100"></canvas>
+</div>
+
+<script>
+const ctx = document.getElementById('deptChart').getContext('2d');
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: {{ dept_labels|safe }},
+        datasets: [{
+            label: 'Planlanan Tutar (TL)',
+            data: {{ dept_values|safe }},
+            backgroundColor: '#0d3b66'
+        }]
+    },
+    options: {
+        responsive: true,
+        interaction: {
+            mode:'index',
+            intersect:false
+        },
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                enabled: true,
+                callbacks: {
+                    label: function(context) {
+                        return context.parsed.y.toLocaleString('tr-TR') + ' TL';
+                    }
+                }
+            }
+        }
+    }
+});
+</script>
+{% endblock %}

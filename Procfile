@@ -1,0 +1,1 @@
+web: gunicorn butceyazilimi.wsgi --log-file-

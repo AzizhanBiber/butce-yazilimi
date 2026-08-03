@@ -1,0 +1,61 @@
+{% extends "budgets/base.html" %}
+{% block title %}Bütçe Detayı{% endblock %}
+{% block content %}
+<h2 class="mb-1">{{ budget.department }} — {{ budget.period }}</h2>
+<p class="text-muted">{{ budget.get_budget_type_display }} | Durum: {{ budget.get_status_display }} | Versiyon: {{ budget.version_number }}</p>
+<div class="mb-4">
+    {% if budget.status == "taslak" %}
+    <a href="{% url 'submit_for_approval' budget.pk %}" class="btn btn-primary btn-sm">Onaya Gönder</a>
+    {% elif budget.status == "dept_onay" %}
+    <a href="{% url 'approve_budget' budget.pk %}" class="btn btn-success btn-sm">Onayla</a>
+    <a href="{% url 'reject_budget' budget.pk %}" class="btn btn-danger btn-sm">Reddet</a>
+    {% elif budget.status == "onaylandi" %}
+    <span class="badge bg-success">Onaylandı</span>
+    {% elif budget.status == "reddedildi" %}
+    <span class="badge bg-danger">Reddedildi</span>
+    {% endif %}
+</div>
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-info">{{ message }}</div>
+{% endfor %}
+{% endif %}
+
+
+<div class="card p-3 mb-4">
+    <h5>Toplam: {{ total }} TL</h5>
+</div>
+
+<table class="table table-hover bg-white mb-4">
+    <thead>
+        <tr><th>Kategori</th><th>Tutar (TL)</th><th>Ay</th><th>Açıklama</th></tr>
+    </thead>
+    <tbody>
+        {% for l in lines %}
+        <tr>
+            <td>{{ l.category }}</td>
+            <td>{{ l.planned_amount }}</td>
+            <td>{{ l.month|default:"-" }}</td>
+            <td>{{ l.notes|default:"-" }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4">Henüz kalem eklenmedi.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="card p-4">
+    <h5 class="mb-3">Yeni Kalem Ekle</h5>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="mb-3">
+            <label class="form-label">{{ field.label }}</label>
+            {{ field }}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Kalem Ekle</button>
+    </form>
+</div>
+{% endblock %}

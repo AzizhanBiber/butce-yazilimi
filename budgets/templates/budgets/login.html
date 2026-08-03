@@ -1,0 +1,26 @@
+{% extends "budgets/base.html" %}
+{% block title %}Giriş Yap{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="card p-4 mt-5">
+            <h4 class="mb-3 text-center">TÜMOSAN Bütçe Sistemi</h4>
+            {% if form.errors %}
+            <div class="alert alert-danger">Kullanıcı adı veya şifre hatalı.</div>
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Kullanıcı Adı</label>
+                    <input type="text" name="username" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Şifre</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

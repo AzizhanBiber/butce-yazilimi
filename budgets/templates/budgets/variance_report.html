@@ -1,0 +1,38 @@
+{% extends "budgets/base.html" %}
+{% block title %}Sapma Analizi{% endblock %}
+{% block content %}
+<h2 class="mb-4">Gerçekleşen vs Bütçe (Sapma Analizi)</h2>
+<table class="table table-hover bg-white">
+    <thead>
+        <tr>
+            <th>Departman</th>
+            <th>Planlanan (TL)</th>
+            <th>Gerçekleşen (TL)</th>
+            <th>Fark (TL)</th>
+            <th>Kullanım Oranı</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in report %}
+        <tr>
+            <td>{{ r.department }}</td>
+            <td>{{ r.planned|floatformat:0 }}</td>
+            <td>{{ r.actual|floatformat:0 }}</td>
+            <td class="{% if r.variance < 0 %}text-danger{% else %}text-success{% endif %}">
+                {{ r.variance|floatformat:0 }}
+            </td>
+            <td>
+                <div class="progress" style="height: 20px;">
+                    <div class="progress-bar {% if r.usage_percent > 100 %}bg-danger{% elif r.usage_percent > 80 %}bg-warning{% else %}bg-success{% endif %}"
+                         style="width: {{ r.usage_percent }}%;">
+                        {{ r.usage_percent }}%
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">Veri yok.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

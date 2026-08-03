@@ -1,0 +1,30 @@
+{% extends "budgets/base.html" %}
+{% block title %}Bütçeler{% endblock %}
+{% block content %}
+<h2 class="mb-4">Bütçe Listesi</h2>
+<a href="{% url 'budget_create' %}" class="btn btn-successs mb-3">+ Yeni Bütçe Ekle</a>
+<table class="table table-hover bg-white">
+    <thead>
+        <tr>
+            <th>Departman</th>
+            <th>Dönem</th>
+            <th>Tür</th>
+            <th>Durum</th>
+            <th>Versiyon</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for b in budgets %}
+        <tr>
+            <td><a href="{% url 'budget_detail' b.pk %}">{{ b.department }}</a></td>
+            <td>{{ b.period }}</td>
+            <td>{{ b.get_budget_type_display }}</td>
+            <td>{{ b.get_status_display }}</td>
+            <td>{{ b.version_number }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">Henüz bütçe kaydı yok.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
