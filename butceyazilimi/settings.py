@@ -123,7 +123,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT =os.path.join(BASE_DIR, "staticfiles")
 STORAGES = {
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStatşcFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
 LOGIN_URL = 'login'
