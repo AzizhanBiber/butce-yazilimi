@@ -1,1 +1,1 @@
-web: gunicorn butceyazilimi.wsgi --log-file-
+web: gunicorn butceyazilimi.wsgi 
