@@ -6,9 +6,15 @@
 <div class="mb-4">
     {% if budget.status == "taslak" %}
     <a href="{% url 'submit_for_approval' budget.pk %}" class="btn btn-primary btn-sm">Onaya Gönder</a>
+
     {% elif budget.status == "dept_onay" %}
+    {% if request.user.is_superuser %}
     <a href="{% url 'approve_budget' budget.pk %}" class="btn btn-success btn-sm">Onayla</a>
     <a href="{% url 'reject_budget' budget.pk %}" class="btn btn-danger btn-sm">Reddet</a>
+    {% else %}
+    <span class="badge bg-warning">Üst Yönetim Onayı Bekleniyor</span>
+    {% endif %}
+
     {% elif budget.status == "onaylandi" %}
     <span class="badge bg-success">Onaylandı</span>
     {% elif budget.status == "reddedildi" %}
