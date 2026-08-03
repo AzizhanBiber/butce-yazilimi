@@ -102,9 +102,6 @@ def submit_for_approval(request, pk):
 @login_required
 def approve_budget(request, pk):
     budget = get_object_or_404(BudgetHeader, pk=pk)
-if not request.user.is_superuser:
-        messages.error(request, "Bu işlemi yapma yetkiniz yok.")
-        return redirect("budget_detail", pk=budget.pk)
     budget.status = "onaylandi"
     budget.save()
     step = budget.approval_steps.filter(status="bekliyor").first()
