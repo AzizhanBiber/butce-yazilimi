@@ -2,6 +2,36 @@
 {% block title %}Bütçeler{% endblock %}
 {% block content %}
 <h2 class="mb-4">Bütçe Listesi</h2>
+<form method="get" class="row g-2 mb-3">
+    <div class="col-auto">
+        <select name="department" class="form-select">
+            <option value="">Tüm Departmanlar</option>
+            {% for d in departments %}
+            <option value="{{ d.id }}" {% if selected_department == d.id|stringformat:"s" %}selected{% endif %}>{{ d.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-auto">
+        <select name="period" class="form-select">
+            <option value="">Tüm Dönemler</option>
+            {% for p in periods %}
+            <option value="{{ p.id }}" {% if selected_period == p.id|stringformat:"s" %}selected{% endif %}>{{ p.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-auto">
+        <select name="status" class="form-select">
+            <option value="">Tüm Durumlar</option>
+            {% for key, label in status_choices %}
+            <option value="{{ key }}" {% if selected_status == key %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Filtrele</button>
+        <a href="{% url 'budget_list' %}" class="btn btn-outline-secondary">Temizle</a>
+    </div>
+</form>
 <a href="{% url 'budget_create' %}" class="btn btn-successs mb-3">+ Yeni Bütçe Ekle</a>
 <table class="table table-hover bg-white">
     <thead>

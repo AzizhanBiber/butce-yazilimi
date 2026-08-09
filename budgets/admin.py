@@ -1,6 +1,6 @@
 """ Yönetim paneli """
 from django.contrib import admin
-from .models import Department, Period, Category, BudgetHeader, BudgetLine, ApprovalStep, ActualData
+from .models import Department, Period, Category, BudgetHeader, BudgetLine, ApprovalStep, ActualData, Notification, AuditLog
 
 
 @admin.register(Department)
@@ -41,3 +41,8 @@ class ApprovalStepAdmin(admin.ModelAdmin):
 class ActualDataAdmin(admin.ModelAdmin):
     list_display = ("department", "category", "period", "month", "actual_amount")
     list_filter = ("period", "department")
+@admin.register(AuditLog)
+class AuditLogAdmin(admin.ModelAdmin):
+    list_display = ("user", "action", "description", "timestamp")
+    list_filter = ("action",)
+    readonly_fields = ("user", "action", "description", "timestamp")

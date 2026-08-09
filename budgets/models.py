@@ -1,6 +1,6 @@
-""" Veritabanı tabloları """
 from django.db import models
 from django.contrib.auth.models import User
+
 
 class Department(models.Model):
     name = models.CharField("Departman Adı", max_length=100)
@@ -128,3 +128,43 @@ class ActualData(models.Model):
 
     def __str__(self):
         return f"{self.department} - {self.category} - Ay {self.month}"
+
+
+class Notification(models.Model):
+    user = models.ForeignKey(User, verbose_name="Kullanıcı", on_delete=models.CASCADE, related_name="notifications")
+    message = models.CharField("Mesaj", max_length=255)
+    is_read = models.BooleanField("Okundu mu", default=False)
+    created_at = models.DateTimeField("Oluşturulma Tarihi", auto_now_add=True)
+    budget_header = models.ForeignKey(BudgetHeader, verbose_name="İlgili Bütçe", on_delete=models.CASCADE, null=True, blank=True)
+
+    class Meta:
+        verbose_name = "Bildirim"
+        verbose_name_plural = "Bildirimler"
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.user} - {self.message}"
+
+
+class AuditLog(models.Model):
+    ACTION_CHOICES = [
+        ("olusturuldu", "Oluşturuldu"),
+        ("guncellendi", "Güncellendi"),
+        ("silindi", "Silindi"),
+        ("onaya_gonderildi", "Onaya Gönderildi"),
+        ("onaylandi", "Onaylandı"),
+        ("reddedildi", "Reddedildi"),
+        ("versiyon_olusturuldu", "Yeni Versiyon Oluşturuldu"),
+    ]
+    user = models.ForeignKey(User, verbose_name="Kullanıcı", on_delete=models.SET_NULL, null=True)
+    action = models.CharField("İşlem", max_length=30, choices=ACTION_CHOICES)
+    description = models.CharField("Açıklama", max_length=255)
+    timestamp = models.DateTimeField("Zaman", auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Denetim Kaydı"
+        verbose_name_plural = "Denetim Kayıtları"
+        ordering = ["-timestamp"]
+
+    def __str__(self):
+        return f"{self.user} - {self.action} - {self.timestamp}"

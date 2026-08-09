@@ -36,6 +36,10 @@ class BudgetLineForm(forms.ModelForm):
         widgets = {
             "category": forms.Select(attrs={"class": "form-select"}),
             "planned_amount": forms.NumberInput(attrs={"class": "form-control"}),
-            "month": forms.NumberInput(attrs={"class": "form-control"}),
+            "month": forms.Select(
+                choices=[("", "Ay Seçin")] + [(i, name) for i, name in enumerate(
+                    ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"], start=1)],
+                    attrs={"class": "form-select"}
+            ),
             "notes": forms.Textarea(attrs={"class": "form-control", "rows": 2}),
         }

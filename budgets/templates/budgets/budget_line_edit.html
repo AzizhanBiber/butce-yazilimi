@@ -1,0 +1,18 @@
+{% extends "budgets/base.html" %}
+{% block title %}Kalemi Düzenle{% endblock %}
+{% block content %}
+<h2 class="mb-4">Kalemi Düzenle</h2>
+<div class="card p-4">
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="mb-3">
+            <label class="form-label">{{ field.label }}</label>
+            {{ field }}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+        <a href="{% url 'budget_detail' budget.pk %}" class="btn btn-secondary">Vazgeç</a>
+    </form>
+</div>
+{% endblock %}

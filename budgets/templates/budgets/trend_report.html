@@ -1,0 +1,54 @@
+{% extends "budgets/base.html" %}
+{% block title %}Aylık Analiz{% endblock %}
+{% block content %}
+<h2 class="mb-4">Aylık Analiz (Planlanan vs Gerçekleşen)</h2>
+
+{% for series in dept_series %}
+<div class="card p-4 mb-4">
+    <h5 class="mb-1">{{ series.department }}</h5>
+    <div class="text_muted mb-3"> Yıllık Toplam (Aya Bağlı Olmayan Kalemler): {{series.annual_planned|floatformat:0 }} TL</div>
+    <canvas id="chart{{ forloop.counter }}" height="80"></canvas>
+</div>
+{% endfor %}
+
+<script>
+const monthNames = {{ month_names|safe }};
+{% for series in dept_series %}
+new Chart(document.getElementById('chart{{ forloop.counter }}').getContext('2d'), {
+    type: 'line',
+    data: {
+        labels: monthNames,
+       datasets: [
+            {
+                label: 'Aylık Planlanan',
+                data: {{ series.planned|safe }},
+                borderColor: '#c81e2c',
+                backgroundColor: 'rgba(200,30,44,0.1)',
+                tension: 0.3
+            },
+            {
+                label: 'Aylık Gerçekleşen',
+                data: {{ series.actual|safe }},
+                borderColor: '#0d3b66',
+                backgroundColor: 'rgba(13,59,102,0.1)',
+                tension: 0.3
+            },
+        ]
+    },
+    options: {
+        responsive: true,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return context.dataset.label + ': ' + context.parsed.y.toLocaleString('tr-TR') + ' TL';
+                    }
+                }
+            }
+        }
+    }
+});
+{% endfor %}
+</script>
+{% endblock %}

@@ -2,37 +2,120 @@
 {% block title %}Panel{% endblock %}
 {% block content %}
 <h2 class="mb-4">Genel Bakış</h2>
-<div class="row">
+
+{% if risk_alerts %}
+<div class="mb-4">
+    {% for alert in risk_alerts %}
+    <div class="alert alert-{{ alert.level }} d-flex justify-content-between align-items-center">
+        <span>
+            {% if alert.level == "danger" %}🔴{% else %}⚠️{% endif %}
+            <strong>{{ alert.department }}</strong> — Bütçenin %{{ alert.usage }}'i kullanıldı
+            {% if alert.level == "danger" %}(Bütçe Aşıldı!){% endif %}
+        </span>
+        <a href="{% url 'variance_report' %}" class="btn btn-sm btn-outline-dark">İncele</a>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="d-flex gap-2 mb-4">
+    <a href="{% url 'budget_create' %}" class="btn btn-primary">+ Yeni Bütçe Oluştur</a>
+    <a href="{% url 'budget_list' %}" class="btn btn-outline-primary">Tüm Bütçeleri Gör</a>
+    <a href="{% url 'variance_report' %}" class="btn btn-outline-primary">Sapma Analizine Git</a>
+</div>
+
+<div class="row g-3 mb-4">
     <div class="col-md-3">
-        <div class="card p-3 text-center">
-            <h6>Toplam Bütçe</h6>
+        <div class="card p-3 text-center h-100">
+            <h6 class="text-muted">Toplam Bütçe</h6>
             <h2>{{ total_budgets }}</h2>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card p-3 text-center">
-            <h6>Departman Sayısı</h6>
+        <div class="card p-3 text-center h-100">
+            <h6 class="text-muted">Departman Sayısı</h6>
             <h2>{{ departments }}</h2>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card p-3 text-center">
-            <h6>Onay Bekleyen</h6>
-            <h2>{{ pending_approval }}</h2>
+        <div class="card p-3 text-center h-100">
+            <h6 class="text-muted">Onay Bekleyen</h6>
+            <h2 class="text-warning">{{ pending_approval }}</h2>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card p-3 text-center">
-            <h6>Onaylanan</h6>
-            <h2>{{ approved }}</h2>
+        <div class="card p-3 text-center h-100">
+            <h6 class="text-muted">Onaylanan</h6>
+            <h2 class="text-success">{{ approved }}</h2>
         </div>
     </div>
 </div>
-<div class="card p-4 mt-4">
-    <h5 class="mb-3">Departman Bazlı Bütçe Dağılımı</h5>
-    <canvas id="deptChart" height="100"></canvas>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="card p-3 text-center h-100">
+            <h6 class="text-muted">Taslak</h6>
+            <h3 class="text-secondary">{{ draft }}</h3>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 text-center h-100">
+            <h6 class="text-muted">Reddedilen</h6>
+            <h3 class="text-danger">{{ rejected }}</h3>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 text-center h-100">
+            <h6 class="text-muted">Okunmamış Bildirim</h6>
+            <h3>{{ unread_count }}</h3>
+        </div>
+    </div>
 </div>
 
+<div class="row g-3">
+    <div class="col-md-7">
+        <div class="card p-4 h-100">
+            <h5 class="mb-3">Departman Bazlı Bütçe Dağılımı</h5>
+            <canvas id="deptChart" height="100"></canvas>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="card p-3 mb-3">
+            <h5 class="mb-2">Onay Bekleyenler</h5>
+            <div class="list-group list-group-flush">
+                {% for b in pending_list %}
+                <a href="{% url 'budget_detail' b.pk %}" class="list-group-item list-group-item-action">
+                    {{ b.department }} — {{ b.get_budget_type_display }}
+                    <span class="badge bg-warning float-end">{{ b.get_status_display }}</span>
+                </a>
+                {% empty %}
+                <div class="list-group-item text-muted">Onay bekleyen bütçe yok.</div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="card p-3">
+            <h5 class="mb-2">Son Eklenen Bütçeler</h5>
+            <div class="list-group list-group-flush">
+                {% for b in recent_budgets %}
+                <a href="{% url 'budget_detail' b.pk %}" class="list-group-item list-group-item-action">
+                    {{ b.department }} — {{ b.period }}
+                    <span class="text-muted small float-end">{{ b.created_at|date:"d.m.Y" }}</span>
+                </a>
+                {% empty %}
+                <div class="list-group-item text-muted">Henüz bütçe yok.</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row g-3 mt-1">
+    <div class="col-md-12">
+        <div class="card p-3 h-100">
+            <h6 class="text-muted mb-2">Durum Dağılımı</h6>
+            <canvas id="statusChart" height="60"></canvas>
+        </div>
+    </div>
+</div>
 <script>
 const ctx = document.getElementById('deptChart').getContext('2d');
 new Chart(ctx, {
@@ -42,15 +125,12 @@ new Chart(ctx, {
         datasets: [{
             label: 'Planlanan Tutar (TL)',
             data: {{ dept_values|safe }},
-            backgroundColor: '#0d3b66'
+            backgroundColor: '#c81e2c'
         }]
     },
     options: {
         responsive: true,
-        interaction: {
-            mode:'index',
-            intersect:false
-        },
+        interaction: { mode: 'index', intersect: false },
         plugins: {
             legend: { display: false },
             tooltip: {
@@ -62,6 +142,22 @@ new Chart(ctx, {
                 }
             }
         }
+    }
+});
+
+const statusCtx = document.getElementById('statusChart').getContext('2d');
+new Chart(statusCtx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Taslak', 'Onay Bekleyen', 'Onaylanan', 'Reddedilen'],
+        datasets: [{
+            data: [{{ draft }}, {{ pending_approval }}, {{ approved }}, {{ rejected }}],
+            backgroundColor: ['#6c757d', '#e0a800', '#198754', '#c81e2c']
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { position: 'right' } }
     }
 });
 </script>

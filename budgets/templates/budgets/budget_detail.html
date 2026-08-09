@@ -17,25 +17,38 @@
 
     {% elif budget.status == "onaylandi" %}
     <span class="badge bg-success">Onaylandı</span>
+    <a href="{% url 'create_new_version' budget.pk %}" class="btn btn-outline-primary btn-sm">Yeni Versiyon Oluştur</a>
+    <a href="{% url 'sync_from_sap' budget.pk %}" class="btn btn-outline-dark btn-sm">SAP'den Veri Çek</a>
     {% elif budget.status == "reddedildi" %}
     <span class="badge bg-danger">Reddedildi</span>
+     <a href="{% url 'create_new_version' budget.pk %}" class="btn btn-outline-primary btn-sm">Yeni Versiyon Oluştur</a>
     {% endif %}
 </div>
 
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-info">{{ message }}</div>
-{% endfor %}
-{% endif %}
+
 
 
 <div class="card p-3 mb-4">
     <h5>Toplam: {{ total }} TL</h5>
 </div>
+<div class="mb-3">
+    <a href="{% url 'export_budget_excel' budget.pk %}" class="btn btn-outline-success btn-sm">Excel'e Aktar</a>
+    <a href="{% url 'export_budget_pdf' budget.pk %}" class="btn btn-outline-danger btn-sm">PDF İndir</a>
+    {% if budget.status == "taslak" %}
+    <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#excelImport">Excel'den Yükle</button>
+    <div class="collapse mt-2" id="excelImport">
+        <form method="post" action="{% url 'import_budget_excel' budget.pk %}" enctype="multipart/form-data" class="d-flex gap-2 align-items-center">
+            {% csrf_token %}
+            <input type="file" name="excel_file" accept=".xlsx" class="form-control" style="max-width: 300px;">
+            <button type="submit" class="btn btn-primary btn-sm">Yükle</button>
+        </form>
+    </div>
+    {% endif %}
+</div>
 
 <table class="table table-hover bg-white mb-4">
     <thead>
-        <tr><th>Kategori</th><th>Tutar (TL)</th><th>Ay</th><th>Açıklama</th></tr>
+        <tr><th>Kategori</th><th>Tutar (TL)</th><th>Ay</th><th>Açıklama</th><th></th></tr>
     </thead>
     <tbody>
         {% for l in lines %}
@@ -44,13 +57,18 @@
             <td>{{ l.planned_amount }}</td>
             <td>{{ l.month|default:"-" }}</td>
             <td>{{ l.notes|default:"-" }}</td>
+            <td>
+                {% if budget.status == "taslak" %}
+                <a href="{% url 'edit_budget_line' l.pk %}" class="btn btn-outline-primary btn-sm">Düzenle</a>
+                <a href="{% url 'delete_budget_line' l.pk %}" class="btn btn-outline-danger btn-sm" onclick="return confirm('Silinsin mi?')">Sil</a>
+                {% endif %}
+            </td>
         </tr>
         {% empty %}
-        <tr><td colspan="4">Henüz kalem eklenmedi.</td></tr>
+        <tr><td colspan="5">Henüz kalem eklenmedi.</td></tr>
         {% endfor %}
     </tbody>
 </table>
-
 <div class="card p-4">
     <h5 class="mb-3">Yeni Kalem Ekle</h5>
     <form method="post">
