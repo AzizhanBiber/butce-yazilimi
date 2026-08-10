@@ -186,7 +186,7 @@ def submit_for_approval(request, pk):
             message=f"{budget.department} departmanı {budget.period} dönemi için bir bütçeyi onayınıza sundu.",
             from_email=None,
             recipient_list= [admin_user.email],
-            fail_silently=False,
+            fail_silently=True,
         )    
     AuditLog.objects.create(
         user=request.user, action="onaya_gonderildi",
@@ -222,7 +222,7 @@ def approve_budget(request, pk):
                 message=f"{budget.department} departmanının {budget.period} dönemi bütçesi onaylandı.",
                 from_email=None,
                 recipient_list=[budget.department.manager.email],
-                fail_silently=False,
+                fail_silently=True,
             )    
     AuditLog.objects.create(
         user=request.user, action="onaylandi",
@@ -258,7 +258,7 @@ def reject_budget(request, pk):
                 message=f"{budget.department} departmanının {budget.period} dönemi bütçesi reddedildi.",
                 from_email=None,
                 recipient_list=[budget.department.manager.email],
-                fail_silently=False,
+                fail_silently=True,
             )    
     AuditLog.objects.create(
         user=request.user, action="reddedildi",
