@@ -1,1 +1,1 @@
-web: gunicorn butceyazilimi.wsgi
+web: gunicorn butceyazilimi.wsgi --timeout 120
