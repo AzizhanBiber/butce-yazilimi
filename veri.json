@@ -1,0 +1,1431 @@
+[
+{
+  "model": "budgets.department",
+  "pk": 1,
+  "fields": {
+    "name": "Üretim",
+    "manager": 9
+  }
+},
+{
+  "model": "budgets.department",
+  "pk": 2,
+  "fields": {
+    "name": "Satış",
+    "manager": 8
+  }
+},
+{
+  "model": "budgets.department",
+  "pk": 3,
+  "fields": {
+    "name": "Satın Alma",
+    "manager": 7
+  }
+},
+{
+  "model": "budgets.department",
+  "pk": 4,
+  "fields": {
+    "name": "Muhasebe",
+    "manager": 6
+  }
+},
+{
+  "model": "budgets.department",
+  "pk": 5,
+  "fields": {
+    "name": "Ar-Ge",
+    "manager": 5
+  }
+},
+{
+  "model": "budgets.department",
+  "pk": 6,
+  "fields": {
+    "name": "İnsan Kaynakları",
+    "manager": 3
+  }
+},
+{
+  "model": "budgets.department",
+  "pk": 7,
+  "fields": {
+    "name": "Finans",
+    "manager": 4
+  }
+},
+{
+  "model": "budgets.period",
+  "pk": 1,
+  "fields": {
+    "name": "2027 Yıllık Bütçe",
+    "start_date": "2027-01-01",
+    "end_date": "2027-12-31",
+    "is_locked": false
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 1,
+  "fields": {
+    "name": "Hammadde",
+    "budget_type": "uretim"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 2,
+  "fields": {
+    "name": "İşçilik",
+    "budget_type": "uretim"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 3,
+  "fields": {
+    "name": "Personel Giderleri",
+    "budget_type": "personel"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 4,
+  "fields": {
+    "name": "Pazarlama Gideri",
+    "budget_type": "pazarlama"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 5,
+  "fields": {
+    "name": "Bakım-Onarım Gideri",
+    "budget_type": "bakim_onarim"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 6,
+  "fields": {
+    "name": "Enerji",
+    "budget_type": "uretim"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 9,
+  "fields": {
+    "name": "Nakliye",
+    "budget_type": "satis"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 10,
+  "fields": {
+    "name": "Reklam/Tanıtım",
+    "budget_type": "satis"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 11,
+  "fields": {
+    "name": "Tedarikçi Ödemeleri",
+    "budget_type": "maliyet"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 12,
+  "fields": {
+    "name": "Lojistik",
+    "budget_type": "maliyet"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 13,
+  "fields": {
+    "name": "Vergi",
+    "budget_type": "genel_yonetim"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 14,
+  "fields": {
+    "name": "Ofis Giderleri",
+    "budget_type": "genel_yonetim"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 15,
+  "fields": {
+    "name": "Test Ekipmanları",
+    "budget_type": "arge"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 16,
+  "fields": {
+    "name": "Prototip Geliştirme",
+    "budget_type": "arge"
+  }
+},
+{
+  "model": "budgets.category",
+  "pk": 17,
+  "fields": {
+    "name": "Yatırım İşlemleri",
+    "budget_type": "nakit"
+  }
+},
+{
+  "model": "budgets.budgetheader",
+  "pk": 4,
+  "fields": {
+    "department": 1,
+    "period": 1,
+    "budget_type": "uretim",
+    "status": "onaylandi",
+    "version_number": 1,
+    "created_by": 2,
+    "created_at": "2026-08-02T22:10:22.190Z"
+  }
+},
+{
+  "model": "budgets.budgetheader",
+  "pk": 5,
+  "fields": {
+    "department": 2,
+    "period": 1,
+    "budget_type": "satis",
+    "status": "onaylandi",
+    "version_number": 1,
+    "created_by": 2,
+    "created_at": "2026-08-02T22:11:29.931Z"
+  }
+},
+{
+  "model": "budgets.budgetheader",
+  "pk": 6,
+  "fields": {
+    "department": 6,
+    "period": 1,
+    "budget_type": "personel",
+    "status": "reddedildi",
+    "version_number": 1,
+    "created_by": 3,
+    "created_at": "2026-08-07T08:12:11.762Z"
+  }
+},
+{
+  "model": "budgets.budgetheader",
+  "pk": 8,
+  "fields": {
+    "department": 6,
+    "period": 1,
+    "budget_type": "personel",
+    "status": "reddedildi",
+    "version_number": 1,
+    "created_by": 3,
+    "created_at": "2026-08-07T08:50:30.923Z"
+  }
+},
+{
+  "model": "budgets.budgetheader",
+  "pk": 12,
+  "fields": {
+    "department": 6,
+    "period": 1,
+    "budget_type": "personel",
+    "status": "onaylandi",
+    "version_number": 2,
+    "created_by": 3,
+    "created_at": "2026-08-08T10:32:58.159Z"
+  }
+},
+{
+  "model": "budgets.budgetheader",
+  "pk": 18,
+  "fields": {
+    "department": 6,
+    "period": 1,
+    "budget_type": "personel",
+    "status": "onaylandi",
+    "version_number": 1,
+    "created_by": 3,
+    "created_at": "2026-08-09T07:02:00.625Z"
+  }
+},
+{
+  "model": "budgets.budgetheader",
+  "pk": 20,
+  "fields": {
+    "department": 7,
+    "period": 1,
+    "budget_type": "nakit",
+    "status": "onaylandi",
+    "version_number": 1,
+    "created_by": 4,
+    "created_at": "2026-08-09T08:28:44.231Z"
+  }
+},
+{
+  "model": "budgets.budgetheader",
+  "pk": 21,
+  "fields": {
+    "department": 5,
+    "period": 1,
+    "budget_type": "arge",
+    "status": "onaylandi",
+    "version_number": 1,
+    "created_by": 5,
+    "created_at": "2026-08-09T08:30:19.974Z"
+  }
+},
+{
+  "model": "budgets.budgetheader",
+  "pk": 23,
+  "fields": {
+    "department": 4,
+    "period": 1,
+    "budget_type": "genel_yonetim",
+    "status": "onaylandi",
+    "version_number": 1,
+    "created_by": 6,
+    "created_at": "2026-08-09T08:33:10.726Z"
+  }
+},
+{
+  "model": "budgets.budgetheader",
+  "pk": 24,
+  "fields": {
+    "department": 3,
+    "period": 1,
+    "budget_type": "maliyet",
+    "status": "onaylandi",
+    "version_number": 1,
+    "created_by": 7,
+    "created_at": "2026-08-09T08:35:21.734Z"
+  }
+},
+{
+  "model": "budgets.budgetheader",
+  "pk": 25,
+  "fields": {
+    "department": 5,
+    "period": 1,
+    "budget_type": "arge",
+    "status": "onaylandi",
+    "version_number": 1,
+    "created_by": 5,
+    "created_at": "2026-08-09T08:52:48.456Z"
+  }
+},
+{
+  "model": "budgets.budgetline",
+  "pk": 4,
+  "fields": {
+    "budget_header": 4,
+    "category": 1,
+    "planned_amount": "80000000.00",
+    "month": 1,
+    "notes": ""
+  }
+},
+{
+  "model": "budgets.budgetline",
+  "pk": 5,
+  "fields": {
+    "budget_header": 5,
+    "category": 4,
+    "planned_amount": "6000000.00",
+    "month": 2,
+    "notes": ""
+  }
+},
+{
+  "model": "budgets.budgetline",
+  "pk": 6,
+  "fields": {
+    "budget_header": 6,
+    "category": 3,
+    "planned_amount": "600000.00",
+    "month": 1,
+    "notes": ""
+  }
+},
+{
+  "model": "budgets.budgetline",
+  "pk": 8,
+  "fields": {
+    "budget_header": 8,
+    "category": 3,
+    "planned_amount": "8000000.00",
+    "month": 1,
+    "notes": ""
+  }
+},
+{
+  "model": "budgets.budgetline",
+  "pk": 12,
+  "fields": {
+    "budget_header": 6,
+    "category": 3,
+    "planned_amount": "500000.00",
+    "month": 1,
+    "notes": ""
+  }
+},
+{
+  "model": "budgets.budgetline",
+  "pk": 16,
+  "fields": {
+    "budget_header": 12,
+    "category": 3,
+    "planned_amount": "500000.00",
+    "month": 1,
+    "notes": ""
+  }
+},
+{
+  "model": "budgets.budgetline",
+  "pk": 22,
+  "fields": {
+    "budget_header": 18,
+    "category": 3,
+    "planned_amount": "2000000.00",
+    "month": null,
+    "notes": ""
+  }
+},
+{
+  "model": "budgets.budgetline",
+  "pk": 24,
+  "fields": {
+    "budget_header": 20,
+    "category": 17,
+    "planned_amount": "5000000.00",
+    "month": null,
+    "notes": ""
+  }
+},
+{
+  "model": "budgets.budgetline",
+  "pk": 25,
+  "fields": {
+    "budget_header": 21,
+    "category": 16,
+    "planned_amount": "1000000.00",
+    "month": null,
+    "notes": ""
+  }
+},
+{
+  "model": "budgets.budgetline",
+  "pk": 28,
+  "fields": {
+    "budget_header": 23,
+    "category": 13,
+    "planned_amount": "6000000.00",
+    "month": null,
+    "notes": ""
+  }
+},
+{
+  "model": "budgets.budgetline",
+  "pk": 29,
+  "fields": {
+    "budget_header": 24,
+    "category": 11,
+    "planned_amount": "4000000.00",
+    "month": null,
+    "notes": ""
+  }
+},
+{
+  "model": "budgets.budgetline",
+  "pk": 30,
+  "fields": {
+    "budget_header": 25,
+    "category": 15,
+    "planned_amount": "2000000.00",
+    "month": null,
+    "notes": ""
+  }
+},
+{
+  "model": "budgets.approvalstep",
+  "pk": 4,
+  "fields": {
+    "budget_header": 4,
+    "step_order": 1,
+    "approver": 2,
+    "status": "onaylandi",
+    "comment": "",
+    "acted_at": "2026-08-02T22:10:41.565Z"
+  }
+},
+{
+  "model": "budgets.approvalstep",
+  "pk": 5,
+  "fields": {
+    "budget_header": 5,
+    "step_order": 1,
+    "approver": 2,
+    "status": "onaylandi",
+    "comment": "",
+    "acted_at": "2026-08-02T22:12:03.315Z"
+  }
+},
+{
+  "model": "budgets.approvalstep",
+  "pk": 6,
+  "fields": {
+    "budget_header": 6,
+    "step_order": 1,
+    "approver": 2,
+    "status": "reddedildi",
+    "comment": "",
+    "acted_at": "2026-08-07T08:13:08.163Z"
+  }
+},
+{
+  "model": "budgets.approvalstep",
+  "pk": 8,
+  "fields": {
+    "budget_header": 8,
+    "step_order": 1,
+    "approver": 2,
+    "status": "reddedildi",
+    "comment": "",
+    "acted_at": "2026-08-07T08:51:03.115Z"
+  }
+},
+{
+  "model": "budgets.approvalstep",
+  "pk": 9,
+  "fields": {
+    "budget_header": 12,
+    "step_order": 1,
+    "approver": 2,
+    "status": "onaylandi",
+    "comment": "",
+    "acted_at": "2026-08-08T10:37:27.711Z"
+  }
+},
+{
+  "model": "budgets.approvalstep",
+  "pk": 19,
+  "fields": {
+    "budget_header": 18,
+    "step_order": 1,
+    "approver": 2,
+    "status": "onaylandi",
+    "comment": "",
+    "acted_at": "2026-08-09T09:17:03.969Z"
+  }
+},
+{
+  "model": "budgets.approvalstep",
+  "pk": 23,
+  "fields": {
+    "budget_header": 20,
+    "step_order": 1,
+    "approver": 2,
+    "status": "onaylandi",
+    "comment": "",
+    "acted_at": "2026-08-09T09:16:57.383Z"
+  }
+},
+{
+  "model": "budgets.approvalstep",
+  "pk": 24,
+  "fields": {
+    "budget_header": 21,
+    "step_order": 1,
+    "approver": 2,
+    "status": "onaylandi",
+    "comment": "",
+    "acted_at": "2026-08-09T09:16:51.137Z"
+  }
+},
+{
+  "model": "budgets.approvalstep",
+  "pk": 25,
+  "fields": {
+    "budget_header": 23,
+    "step_order": 1,
+    "approver": 2,
+    "status": "onaylandi",
+    "comment": "",
+    "acted_at": "2026-08-09T09:16:45.480Z"
+  }
+},
+{
+  "model": "budgets.approvalstep",
+  "pk": 26,
+  "fields": {
+    "budget_header": 24,
+    "step_order": 1,
+    "approver": 2,
+    "status": "onaylandi",
+    "comment": "",
+    "acted_at": "2026-08-09T09:16:40.375Z"
+  }
+},
+{
+  "model": "budgets.approvalstep",
+  "pk": 27,
+  "fields": {
+    "budget_header": 25,
+    "step_order": 1,
+    "approver": 2,
+    "status": "onaylandi",
+    "comment": "",
+    "acted_at": "2026-08-09T09:16:33.237Z"
+  }
+},
+{
+  "model": "budgets.actualdata",
+  "pk": 1,
+  "fields": {
+    "department": 6,
+    "category": 3,
+    "period": 1,
+    "month": 1,
+    "actual_amount": "496172.03",
+    "imported_at": "2026-08-02T22:39:12.231Z"
+  }
+},
+{
+  "model": "budgets.actualdata",
+  "pk": 2,
+  "fields": {
+    "department": 5,
+    "category": 16,
+    "period": 1,
+    "month": 1,
+    "actual_amount": "878490.76",
+    "imported_at": "2026-08-09T09:19:20.220Z"
+  }
+},
+{
+  "model": "budgets.actualdata",
+  "pk": 3,
+  "fields": {
+    "department": 5,
+    "category": 15,
+    "period": 1,
+    "month": 1,
+    "actual_amount": "1912247.98",
+    "imported_at": "2026-08-09T09:19:33.430Z"
+  }
+},
+{
+  "model": "budgets.actualdata",
+  "pk": 4,
+  "fields": {
+    "department": 7,
+    "category": 17,
+    "period": 1,
+    "month": 1,
+    "actual_amount": "5289002.80",
+    "imported_at": "2026-08-09T09:20:30.505Z"
+  }
+},
+{
+  "model": "budgets.actualdata",
+  "pk": 5,
+  "fields": {
+    "department": 4,
+    "category": 13,
+    "period": 1,
+    "month": 1,
+    "actual_amount": "4573097.80",
+    "imported_at": "2026-08-09T09:20:54.141Z"
+  }
+},
+{
+  "model": "budgets.actualdata",
+  "pk": 6,
+  "fields": {
+    "department": 3,
+    "category": 11,
+    "period": 1,
+    "month": 1,
+    "actual_amount": "3139489.06",
+    "imported_at": "2026-08-09T09:21:12.774Z"
+  }
+},
+{
+  "model": "budgets.actualdata",
+  "pk": 7,
+  "fields": {
+    "department": 2,
+    "category": 4,
+    "period": 1,
+    "month": 2,
+    "actual_amount": "5429282.86",
+    "imported_at": "2026-08-09T09:21:36.430Z"
+  }
+},
+{
+  "model": "budgets.actualdata",
+  "pk": 8,
+  "fields": {
+    "department": 1,
+    "category": 1,
+    "period": 1,
+    "month": 1,
+    "actual_amount": "69854706.03",
+    "imported_at": "2026-08-09T09:21:55.209Z"
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "message": "İnsan Kaynakları departmani bir butceyi onaya sundu.",
+    "is_read": true,
+    "created_at": "2026-08-07T08:50:47.308Z",
+    "budget_header": 8
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 5,
+  "fields": {
+    "user": 3,
+    "message": "İnsan Kaynakları butceniz reddedildi.",
+    "is_read": true,
+    "created_at": "2026-08-07T08:51:03.166Z",
+    "budget_header": 8
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 7,
+  "fields": {
+    "user": 2,
+    "message": "İnsan Kaynakları departmani bir butceyi onaya sundu.",
+    "is_read": true,
+    "created_at": "2026-08-08T10:33:11.152Z",
+    "budget_header": 12
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 8,
+  "fields": {
+    "user": 3,
+    "message": "İnsan Kaynakları butceniz onaylandi.",
+    "is_read": true,
+    "created_at": "2026-08-08T10:37:27.722Z",
+    "budget_header": 12
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 20,
+  "fields": {
+    "user": 2,
+    "message": "İnsan Kaynakları departmani bir butceyi onaya sundu.",
+    "is_read": true,
+    "created_at": "2026-08-09T07:02:15.420Z",
+    "budget_header": 18
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 24,
+  "fields": {
+    "user": 2,
+    "message": "Finans departmani bir butceyi onaya sundu.",
+    "is_read": true,
+    "created_at": "2026-08-09T08:29:10.468Z",
+    "budget_header": 20
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 25,
+  "fields": {
+    "user": 2,
+    "message": "Ar-Ge departmani bir butceyi onaya sundu.",
+    "is_read": true,
+    "created_at": "2026-08-09T08:30:42.348Z",
+    "budget_header": 21
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 26,
+  "fields": {
+    "user": 2,
+    "message": "Muhasebe departmani bir butceyi onaya sundu.",
+    "is_read": true,
+    "created_at": "2026-08-09T08:33:25.582Z",
+    "budget_header": 23
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 27,
+  "fields": {
+    "user": 2,
+    "message": "Satın Alma departmani bir butceyi onaya sundu.",
+    "is_read": true,
+    "created_at": "2026-08-09T08:35:52.195Z",
+    "budget_header": 24
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 28,
+  "fields": {
+    "user": 2,
+    "message": "Ar-Ge departmani bir butceyi onaya sundu.",
+    "is_read": true,
+    "created_at": "2026-08-09T08:53:04.643Z",
+    "budget_header": 25
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 31,
+  "fields": {
+    "user": 5,
+    "message": "Ar-Ge butceniz onaylandi.",
+    "is_read": false,
+    "created_at": "2026-08-09T09:16:33.253Z",
+    "budget_header": 25
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 32,
+  "fields": {
+    "user": 7,
+    "message": "Satın Alma butceniz onaylandi.",
+    "is_read": false,
+    "created_at": "2026-08-09T09:16:40.390Z",
+    "budget_header": 24
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 33,
+  "fields": {
+    "user": 6,
+    "message": "Muhasebe butceniz onaylandi.",
+    "is_read": false,
+    "created_at": "2026-08-09T09:16:45.496Z",
+    "budget_header": 23
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 34,
+  "fields": {
+    "user": 5,
+    "message": "Ar-Ge butceniz onaylandi.",
+    "is_read": false,
+    "created_at": "2026-08-09T09:16:51.155Z",
+    "budget_header": 21
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 35,
+  "fields": {
+    "user": 4,
+    "message": "Finans butceniz onaylandi.",
+    "is_read": false,
+    "created_at": "2026-08-09T09:16:57.405Z",
+    "budget_header": 20
+  }
+},
+{
+  "model": "budgets.notification",
+  "pk": 36,
+  "fields": {
+    "user": 3,
+    "message": "İnsan Kaynakları butceniz onaylandi.",
+    "is_read": false,
+    "created_at": "2026-08-09T09:17:03.984Z",
+    "budget_header": 18
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 1,
+  "fields": {
+    "user": 3,
+    "action": "olusturuldu",
+    "description": "İnsan Kaynakları - 2027 Yıllık Bütçe bütçesi oluşturuldu.",
+    "timestamp": "2026-08-08T13:56:56.256Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "action": "onaya_gonderildi",
+    "description": "İnsan Kaynakları bütçesi onaya gönderildi.",
+    "timestamp": "2026-08-09T06:43:51.292Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "action": "olusturuldu",
+    "description": "İnsan Kaynakları - 2027 Yıllık Bütçe bütçesi oluşturuldu.",
+    "timestamp": "2026-08-09T06:48:08.437Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 4,
+  "fields": {
+    "user": 3,
+    "action": "onaya_gonderildi",
+    "description": "İnsan Kaynakları bütçesi onaya gönderildi.",
+    "timestamp": "2026-08-09T06:49:55.800Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 5,
+  "fields": {
+    "user": 3,
+    "action": "olusturuldu",
+    "description": "İnsan Kaynakları - 2027 Yıllık Bütçe bütçesi oluşturuldu.",
+    "timestamp": "2026-08-09T06:51:22.372Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 6,
+  "fields": {
+    "user": 3,
+    "action": "onaya_gonderildi",
+    "description": "İnsan Kaynakları bütçesi onaya gönderildi.",
+    "timestamp": "2026-08-09T06:51:46.245Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 7,
+  "fields": {
+    "user": 3,
+    "action": "olusturuldu",
+    "description": "İnsan Kaynakları - 2027 Yıllık Bütçe bütçesi oluşturuldu.",
+    "timestamp": "2026-08-09T06:57:25.828Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 8,
+  "fields": {
+    "user": 3,
+    "action": "onaya_gonderildi",
+    "description": "İnsan Kaynakları bütçesi onaya gönderildi.",
+    "timestamp": "2026-08-09T07:01:05.853Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 9,
+  "fields": {
+    "user": 3,
+    "action": "olusturuldu",
+    "description": "İnsan Kaynakları - 2027 Yıllık Bütçe bütçesi oluşturuldu.",
+    "timestamp": "2026-08-09T07:02:00.654Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 10,
+  "fields": {
+    "user": 3,
+    "action": "onaya_gonderildi",
+    "description": "İnsan Kaynakları bütçesi onaya gönderildi.",
+    "timestamp": "2026-08-09T07:02:15.445Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 11,
+  "fields": {
+    "user": 3,
+    "action": "olusturuldu",
+    "description": "İnsan Kaynakları - 2027 Yıllık Bütçe bütçesi oluşturuldu.",
+    "timestamp": "2026-08-09T07:16:15.015Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 12,
+  "fields": {
+    "user": 3,
+    "action": "onaya_gonderildi",
+    "description": "İnsan Kaynakları bütçesi onaya gönderildi.",
+    "timestamp": "2026-08-09T07:25:27.900Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 13,
+  "fields": {
+    "user": 3,
+    "action": "olusturuldu",
+    "description": "İnsan Kaynakları için SAP'den 1 kalem gerçekleşen veri senkronize edildi.",
+    "timestamp": "2026-08-09T07:54:09.739Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 14,
+  "fields": {
+    "user": 3,
+    "action": "olusturuldu",
+    "description": "İnsan Kaynakları için SAP'den 1 kalem gerçekleşen veri senkronize edildi.",
+    "timestamp": "2026-08-09T07:55:23.314Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 15,
+  "fields": {
+    "user": 3,
+    "action": "olusturuldu",
+    "description": "İnsan Kaynakları için SAP'den 1 kalem gerçekleşen veri senkronize edildi.",
+    "timestamp": "2026-08-09T07:55:49.227Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 16,
+  "fields": {
+    "user": 4,
+    "action": "olusturuldu",
+    "description": "Finans - 2027 Yıllık Bütçe bütçesi oluşturuldu.",
+    "timestamp": "2026-08-09T08:28:44.256Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 17,
+  "fields": {
+    "user": 4,
+    "action": "onaya_gonderildi",
+    "description": "Finans bütçesi onaya gönderildi.",
+    "timestamp": "2026-08-09T08:29:12.315Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 18,
+  "fields": {
+    "user": 5,
+    "action": "olusturuldu",
+    "description": "Ar-Ge - 2027 Yıllık Bütçe bütçesi oluşturuldu.",
+    "timestamp": "2026-08-09T08:30:19.996Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 19,
+  "fields": {
+    "user": 5,
+    "action": "onaya_gonderildi",
+    "description": "Ar-Ge bütçesi onaya gönderildi.",
+    "timestamp": "2026-08-09T08:30:43.745Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 20,
+  "fields": {
+    "user": 6,
+    "action": "versiyon_olusturuldu",
+    "description": "Muhasebe için versiyon 2 oluşturuldu.",
+    "timestamp": "2026-08-09T08:31:41.925Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 21,
+  "fields": {
+    "user": 6,
+    "action": "olusturuldu",
+    "description": "Muhasebe - 2027 Yıllık Bütçe bütçesi oluşturuldu.",
+    "timestamp": "2026-08-09T08:33:10.748Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 22,
+  "fields": {
+    "user": 6,
+    "action": "onaya_gonderildi",
+    "description": "Muhasebe bütçesi onaya gönderildi.",
+    "timestamp": "2026-08-09T08:33:27.450Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 23,
+  "fields": {
+    "user": 7,
+    "action": "olusturuldu",
+    "description": "Satın Alma - 2027 Yıllık Bütçe bütçesi oluşturuldu.",
+    "timestamp": "2026-08-09T08:35:21.763Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 24,
+  "fields": {
+    "user": 7,
+    "action": "onaya_gonderildi",
+    "description": "Satın Alma bütçesi onaya gönderildi.",
+    "timestamp": "2026-08-09T08:35:53.805Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 25,
+  "fields": {
+    "user": 5,
+    "action": "olusturuldu",
+    "description": "Ar-Ge - 2027 Yıllık Bütçe bütçesi oluşturuldu.",
+    "timestamp": "2026-08-09T08:52:48.483Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 26,
+  "fields": {
+    "user": 5,
+    "action": "onaya_gonderildi",
+    "description": "Ar-Ge bütçesi onaya gönderildi.",
+    "timestamp": "2026-08-09T08:53:06.107Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 27,
+  "fields": {
+    "user": 3,
+    "action": "olusturuldu",
+    "description": "İnsan Kaynakları - 2027 Yıllık Bütçe bütçesi oluşturuldu.",
+    "timestamp": "2026-08-09T09:08:03.895Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 28,
+  "fields": {
+    "user": 3,
+    "action": "onaya_gonderildi",
+    "description": "İnsan Kaynakları bütçesi onaya gönderildi.",
+    "timestamp": "2026-08-09T09:08:15.198Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 29,
+  "fields": {
+    "user": 2,
+    "action": "reddedildi",
+    "description": "İnsan Kaynakları bütçesi reddedildi.",
+    "timestamp": "2026-08-09T09:08:43.304Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 30,
+  "fields": {
+    "user": 2,
+    "action": "onaylandi",
+    "description": "Ar-Ge bütçesi onaylandı.",
+    "timestamp": "2026-08-09T09:16:34.531Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 31,
+  "fields": {
+    "user": 2,
+    "action": "onaylandi",
+    "description": "Satın Alma bütçesi onaylandı.",
+    "timestamp": "2026-08-09T09:16:41.800Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 32,
+  "fields": {
+    "user": 2,
+    "action": "onaylandi",
+    "description": "Muhasebe bütçesi onaylandı.",
+    "timestamp": "2026-08-09T09:16:47.171Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 33,
+  "fields": {
+    "user": 2,
+    "action": "onaylandi",
+    "description": "Ar-Ge bütçesi onaylandı.",
+    "timestamp": "2026-08-09T09:16:52.443Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 34,
+  "fields": {
+    "user": 2,
+    "action": "onaylandi",
+    "description": "Finans bütçesi onaylandı.",
+    "timestamp": "2026-08-09T09:16:58.509Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 35,
+  "fields": {
+    "user": 2,
+    "action": "onaylandi",
+    "description": "İnsan Kaynakları bütçesi onaylandı.",
+    "timestamp": "2026-08-09T09:17:05.381Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 36,
+  "fields": {
+    "user": 5,
+    "action": "olusturuldu",
+    "description": "Ar-Ge için SAP'den 1 kalem gerçekleşen veri senkronize edildi.",
+    "timestamp": "2026-08-09T09:19:20.232Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 37,
+  "fields": {
+    "user": 5,
+    "action": "olusturuldu",
+    "description": "Ar-Ge için SAP'den 1 kalem gerçekleşen veri senkronize edildi.",
+    "timestamp": "2026-08-09T09:19:33.470Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 38,
+  "fields": {
+    "user": 4,
+    "action": "olusturuldu",
+    "description": "Finans için SAP'den 1 kalem gerçekleşen veri senkronize edildi.",
+    "timestamp": "2026-08-09T09:20:30.526Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 39,
+  "fields": {
+    "user": 6,
+    "action": "olusturuldu",
+    "description": "Muhasebe için SAP'den 1 kalem gerçekleşen veri senkronize edildi.",
+    "timestamp": "2026-08-09T09:20:54.193Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 40,
+  "fields": {
+    "user": 7,
+    "action": "olusturuldu",
+    "description": "Satın Alma için SAP'den 1 kalem gerçekleşen veri senkronize edildi.",
+    "timestamp": "2026-08-09T09:21:12.807Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 41,
+  "fields": {
+    "user": 8,
+    "action": "olusturuldu",
+    "description": "Satış için SAP'den 1 kalem gerçekleşen veri senkronize edildi.",
+    "timestamp": "2026-08-09T09:21:36.454Z"
+  }
+},
+{
+  "model": "budgets.auditlog",
+  "pk": 42,
+  "fields": {
+    "user": 9,
+    "action": "olusturuldu",
+    "description": "Üretim için SAP'den 1 kalem gerçekleşen veri senkronize edildi.",
+    "timestamp": "2026-08-09T09:21:55.231Z"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$005UJi08SvYsKxkOfht3d7$H1/hj6ZT0S5atkfFxxuYZQjKgNkpcR/KIumSYE0mar4=",
+    "last_login": "2026-08-09T09:21:58.547Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "biberaziz@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-08-02T14:06:29Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$lhulHmsYVkJIlFxZWnodAm$Kq9lGlI7rvoWE9qqdqms8tpjB4YT/Da9IxS6uXQI8hI=",
+    "last_login": "2026-08-09T09:07:42.263Z",
+    "is_superuser": false,
+    "username": "IK",
+    "first_name": "",
+    "last_name": "",
+    "email": "ik@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-08-02T21:42:32Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$TmUX9oyq4zMaZQj7UunwQy$uTHScEW1/xLb3g7Zkm+Tekgtt5HkQQtKl7W9YMDkiaA=",
+    "last_login": "2026-08-09T09:20:24.033Z",
+    "is_superuser": false,
+    "username": "Finans",
+    "first_name": "",
+    "last_name": "",
+    "email": "finans@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-08-09T08:03:49Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$9jJIzuNYTZeKn0xTFhpRxt$x0cvk/c4zZad7bq6MczMJmsa7gqbWKgBJnDbVJrfeAU=",
+    "last_login": "2026-08-09T09:18:25.958Z",
+    "is_superuser": false,
+    "username": "arge",
+    "first_name": "",
+    "last_name": "",
+    "email": "arge@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-08-09T08:07:25Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$ouhIhVeU9DAeHcdq7xjG13$FZ1SLU9fyqUrWtKbWlGQiwxGrAR30fGetrnWufCTEpo=",
+    "last_login": "2026-08-09T09:20:46.769Z",
+    "is_superuser": false,
+    "username": "muhasebe",
+    "first_name": "",
+    "last_name": "",
+    "email": "muhasebe@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-08-09T08:08:13Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$ogLoYm1sxSY5flfI6pb7Ty$29pOPLQgFgNnAMHcef8XV9wXgE/lAjOICI93llHsz+Q=",
+    "last_login": "2026-08-09T09:21:06.756Z",
+    "is_superuser": false,
+    "username": "satinalma",
+    "first_name": "",
+    "last_name": "",
+    "email": "satinalma@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-08-09T08:09:09Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$VnFBVo32M3ccScuPkLOQTH$qcYRCgQt9FNU0SiwBjmyKXJnhSdAPbToTQmjFOXzGQc=",
+    "last_login": "2026-08-09T09:21:29.397Z",
+    "is_superuser": false,
+    "username": "satis",
+    "first_name": "",
+    "last_name": "",
+    "email": "satis@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-08-09T08:10:03Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$NGoDhJ04INrzp9d0fgqSiw$YKCryUA9Vasdwy08YoxIyk1AYJZ3Niff89h1gVbSF7U=",
+    "last_login": "2026-08-09T09:21:48.463Z",
+    "is_superuser": false,
+    "username": "uretim",
+    "first_name": "",
+    "last_name": "",
+    "email": "uretim@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-08-09T08:11:19Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
