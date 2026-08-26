@@ -13,7 +13,7 @@ TÜMOSAN için geliştirilen sanayi işletmeleri bütçe yönetim sistemi. Djang
 ## Kurulum
 
 1. Python'ı bilgisayarınıza kurun: https://www.python.org/downloads/
-2. Bu projeyi indirin (sağ üstteki "Code" > "Download ZIP" veya git clone ile)
+2. Bu projeyi indirin 
 3. Terminal/komut satırını açıp proje klasörüne girin
 4. Gerekli kütüphaneleri kurun: pip install -r requirements.txt
 5. Veritabanını hazırlayın: python manage.py migrate
